@@ -45,7 +45,7 @@
 
 :root {
   --radius: 0.625rem;
-  --background: oklch(1 0 0);
+  --background: oklch(0.16 0.0017 17.33);
   --foreground: oklch(0.145 0 0);
   --card: oklch(1 0 0);
   --card-foreground: oklch(0.145 0 0);
@@ -57,8 +57,8 @@
   --secondary-foreground: oklch(0.205 0 0);
   --muted: oklch(0.97 0 0);
   --muted-foreground: oklch(0.556 0 0);
-  --accent: oklch(0.97 0 0);
-  --accent-foreground: oklch(0.205 0 0);
+  --accent: oklch(0.26 0 0);
+  --accent-foreground: oklch(0.985 0 0);
   --destructive: oklch(0.577 0.245 27.325);
   --border: oklch(0.922 0 0);
   --input: oklch(0.922 0 0);
@@ -68,18 +68,14 @@
   --chart-3: oklch(0.398 0.07 227.392);
   --chart-4: oklch(0.828 0.189 84.429);
   --chart-5: oklch(0.769 0.188 70.08);
-  --sidebar: oklch(0.985 0 0);
-  --sidebar-foreground: oklch(0.145 0 0);
+  --sidebar: oklch(0.16 0.0017 17.33);
+  --sidebar-foreground: oklch(0.79 0 0);
   --sidebar-primary: oklch(0.205 0 0);
   --sidebar-primary-foreground: oklch(0.985 0 0);
-  --sidebar-accent: oklch(0.97 0 0);
-  --sidebar-accent-foreground: oklch(0.205 0 0);
+  --sidebar-accent: oklch(0.26 0 0);
+  --sidebar-accent-foreground: oklch(0.985 0 0);
   --sidebar-border: oklch(0.922 0 0);
   --sidebar-ring: oklch(0.708 0 0);
-
-  --custom-light-green: #DCFF7F;  /* light green shade */
-  --custom-green: #C9FF3B;        /* regular green shade */
-  --custom-dark-green: #2C6B3F;  
 }
 
 .dark {
@@ -122,15 +118,37 @@
   }
   body {
     font-family: "Inter", serif;
-    background-color: black;
+    color: white;
   }
 }
 
-@layer base {
-  * {
-    @apply border-border outline-ring/50;
-  }
-  body {
-    @apply bg-background text-foreground;
-  }
+.bg-dashboard {
+  background-color: #161618;
+  border: 1px solid #525252;
+  border-radius: 5px;
+}
+
+.bg-cards{
+  border: 1px solid #525252;
+  background-color: #222324;
+  border-radius: 5px;
+}
+.dashboard-cards{
+  background-color: #222324;
+  border: 1px solid #525252;
+  color: white;
+}
+.results-output{
+  border: 0.5px solid #C8E972;
+  color: #B3E237;
+}
+
+h1{
+  font-size:32px;
+  font-weight: 700;
+}
+
+h2{
+  font-size:24px;
+  font-weight: 600;
 }

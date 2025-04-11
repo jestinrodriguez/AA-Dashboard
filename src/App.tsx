@@ -2,11 +2,9 @@ import DashboardPage from "./pages/DashboardPage"
 
 function App() {
   return (
-    <>
-      <div>
+    <main>
         <DashboardPage/>
-      </div>
-    </>
+    </main>
   )
 }
 

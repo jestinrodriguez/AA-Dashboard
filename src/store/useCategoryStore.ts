@@ -1,5 +1,3 @@
-// src/store/useCategoryStore.ts
-
 import { create } from 'zustand'
 
 type CategorySet1 = 'Carbon 1' | 'Co2 Distribution' | 'Fleet sizing'

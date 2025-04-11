@@ -1,89 +1,70 @@
-// import { AppSidebar } from "../components/AppSidebar";
-// import DashboardChart from "../components/DashboardChart";
-// import DashboardSheet from "../components/DashboardSheet";
-// import { SidebarInset, SidebarProvider } from "../components/ui/sidebar";
-// const DashboardPage = () => {
-//   return (
-//     <SidebarProvider>
-//       <AppSidebar/>
-//       <SidebarInset>
-//         <header className="flex h-16 shrink-0 items-center gap-2 transition-[width,height] ease-linear group-has-[[data-collapsible=icon]]/sidebar-wrapper:h-12">
-//           <div className="flex items-center gap-2 px-4">
-//             <div>Charging Stations</div>
-//             <div>Fleet Sizing</div>
-//             <div>Parking</div>
-//             <div>Search Bar</div>
-//           </div>
-//         </header>
-//         <div className="flex items-center justify-between px-4 py-2">
-//           <div>Charging Station</div>
-//           <div>
-//             <DashboardSheet/>
-//           </div>
-//         </div>
-//         <div>Best Scenario Results</div>
-//         <div className="grid grid-cols-12 gap-4 p-4 pt-0">
-//           <div className="col-span-8 aspect-video rounded-xl bg-muted/50">
-//             <DashboardChart/>
-//           </div>
-//           <div className="col-span-4 grid grid-cols-2 gap-4">
-//             <div className="rounded-xl bg-muted/50" />
-//             <div className="rounded-xl bg-muted/50" />
-//             <div className="rounded-xl bg-muted/50" />
-//             <div className="rounded-xl bg-muted/50" />
-//           </div>
-//         </div>
-//       </SidebarInset>
-//     </SidebarProvider>
-//   );
-// };
-
-// export default DashboardPage;
-
-
-
-// src/pages/DashboardPage.tsx
-
-import { AppSidebar } from "../components/AppSidebar"
-import DashboardChart from "../components/DashboardChart"
-import DashboardSheet from "../components/DashboardSheet"
-import { SidebarInset, SidebarProvider } from "../components/ui/sidebar"
-import CategorySelector from "../components/CategorySelector"
+import { History, Upload, Zap } from "lucide-react";
+import { AppSidebar } from "../components/AppSidebar";
+import DashboardAccordion from "../components/DashboardAccordion";
+import DashboardCards from "../components/DashboardCards";
+import DashboardChart from "../components/DashboardChart";
+import DashboardSheet from "../components/DashboardSheet";
+import { Button } from "../components/ui/button";
+import { SidebarInset, SidebarProvider } from "../components/ui/sidebar";
+import SearchBar from "../components/SearchBar";
 
 const DashboardPage = () => {
   return (
     <SidebarProvider>
       <AppSidebar />
       <SidebarInset>
-        <header className="flex h-16 shrink-0 items-center gap-2 transition-[width,height] ease-linear group-has-[[data-collapsible=icon]]/sidebar-wrapper:h-12">
+        <header className="flex h-12 shrink-0 items-center gap-2 transition-[width,height] ease-linear group-has-[[data-collapsible=icon]]/sidebar-wrapper:h-12">
           <div className="flex items-center gap-2 px-4">
             <div>Charging Stations</div>
             <div>Fleet Sizing</div>
             <div>Parking</div>
-            <div>Search Bar</div>
+            <div>
+              <SearchBar/>
+            </div>
           </div>
         </header>
-        <div className="flex items-center justify-between px-4 py-2">
-          <div>Charging Station</div>
-          <div>
-            <DashboardSheet />
+        <main className="flex-1 bg-dashboard p-7">
+          {/* Top Row */}
+          <div className="flex items-center justify-between px-4 py-2">
+            <span className="flex items-center">
+              <Zap size={30} className="mr-3"/>
+              <h1>Charging Station</h1>
+            </span>
+            <div className="flex items-center gap-2">
+              <Button variant="primary">
+                <History/>
+              </Button>
+                <DashboardSheet />
+              <Button variant="primary">
+                <Upload/>
+              </Button>
+            </div>
           </div>
-        </div>
-        <div>Best Scenario Results</div>
-        <div className="grid grid-cols-12 gap-4 p-4 pt-0">
-          <div className="col-span-8 aspect-video rounded-xl bg-muted/50">
-            <DashboardChart />
+          <DashboardAccordion />
+
+          <div className="grid grid-cols-1 sm:grid-cols-12 px-4 pt-7 gap-4">
+            <div className="sm:col-span-8 flex flex-col">
+              <h2 className="text-lg font-semibold mb-2">Graphs</h2>
+              <div className="rounded-xl">
+                <DashboardChart />
+              </div>
+            </div>
+
+            <div className="sm:col-span-4 flex flex-col">
+              <h2 className="text-lg font-semibold mb-2">
+                Key Performance Indicators
+              </h2>
+              <div className="gap-3 h-full">
+                <DashboardCards />
+              </div>
+            </div>
           </div>
-          <div className="col-span-4 grid grid-cols-2 gap-4">
-            <div className="rounded-xl bg-muted/50" />
-            <div className="rounded-xl bg-muted/50" />
-            <div className="rounded-xl bg-muted/50" />
-            <div className="rounded-xl bg-muted/50" />
-          </div>
-        </div>
+        </main>
+
+
       </SidebarInset>
     </SidebarProvider>
-  )
-}
+  );
+};
 
-export default DashboardPage
+export default DashboardPage;

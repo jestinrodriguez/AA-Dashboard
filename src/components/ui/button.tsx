@@ -20,6 +20,11 @@ const buttonVariants = cva(
         ghost:
           "hover:bg-accent hover:text-accent-foreground dark:hover:bg-accent/50",
         link: "text-primary underline-offset-4 hover:underline",
+          // new toggle variant
+        toggle:
+        "bg-[#595959] border transition-all duration-200 rounded-2xl px-4 py-2",
+        primary:
+        "bg-[#242424] border border-[#5a5a5a] text-[#B9B9B9] rounded hover:bg-background/10 cursor-pointer transition-all duration-200",
       },
       size: {
         default: "h-9 px-4 py-2 has-[>svg]:px-3",

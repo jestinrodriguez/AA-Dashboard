@@ -1,25 +1,21 @@
-import * as React from "react"
+import * as React from "react";
 import {
-  AudioWaveform,
-  BookOpen,
-  Bot,
-  Command,
-  GalleryVerticalEnd,
-  Settings2,
-  SquareTerminal,
-} from "lucide-react"
+  Bell,
+  CalendarClock,
+  CloudUpload,
+  House,
+  SettingsIcon,
+} from "lucide-react";
 import {
   Sidebar,
   SidebarContent,
   SidebarFooter,
   SidebarHeader,
-  SidebarRail,
-} from "../components/ui/sidebar"
-import { SidebarTrigger } from "./ui/sidebar"
-import { NavMain } from "./NavMain"
-import { NavUser } from "./NavUser"
+} from "../components/ui/sidebar";
+import { SidebarTrigger } from "./ui/sidebar";
+import { NavMain } from "./NavMain";
+import { NavUser } from "./NavUser";
 
-// This is sample data.
 const data = {
   user: {
     name: "shadcn",
@@ -30,7 +26,7 @@ const data = {
     {
       title: "Home",
       url: "#",
-      icon: SquareTerminal,
+      icon: House,
       isActive: true,
       items: [
         {
@@ -50,26 +46,31 @@ const data = {
     {
       title: "Notifications",
       url: "#",
-      icon: Bot,
+      icon: Bell,
     },
     {
       title: "Tasks",
       url: "#",
-      icon: BookOpen,
+      icon: CalendarClock,
+    },
+    {
+      title: "Upload",
+      url: "#",
+      icon: CloudUpload,
     },
     {
       title: "Settings",
       url: "#",
-      icon: Settings2,
+      icon: SettingsIcon,
     },
   ],
-}
+};
 
 export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
   return (
     <Sidebar collapsible="icon" {...props}>
       <SidebarHeader>
-        <SidebarTrigger className="-ml-1"  />
+        <SidebarTrigger className="w-8 h-8"></SidebarTrigger>
       </SidebarHeader>
       <SidebarContent>
         <NavMain items={data.navMain} />
@@ -77,7 +78,6 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
       <SidebarFooter>
         <NavUser user={data.user} />
       </SidebarFooter>
-      <SidebarRail />
     </Sidebar>
-  )
+  );
 }
