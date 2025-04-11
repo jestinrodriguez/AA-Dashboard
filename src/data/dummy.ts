@@ -1,19 +1,19 @@
 export const categoryData = {
     'Carbon 1': [
-      { month: "January", amount: 186 },
-      { month: "February", amount: 305 },
-      { month: "March", amount: 237 },
-      { month: "April", amount: 73 },
-      { month: "May", amount: 209 },
+      { month: "January", desktop: 186 },
+      { month: "February", desktop: 305 },
+      { month: "March", desktop: 237 },
+      { month: "April", desktop: 73 },
+      { month: "May", desktop: 209 },
       { month: "June", desktop: 214 },
     ],
     'Co2 Distribution': [
-      { month: "January", amount: 120 },
-      { month: "February", amount: 200 },
-      { month: "March", amount: 150 },
-      { month: "April", amount: 90 },
-      { month: "May", amount: 210 },
-      { month: "June", amount: 175 },
+      { month: "January", desktop: 120 },
+      { month: "February", desktop: 200 },
+      { month: "March", desktop: 150 },
+      { month: "April", desktop: 90 },
+      { month: "May", desktop: 210 },
+      { month: "June", desktop: 175 },
     ],
     'Fleet sizing': [
       { month: "January", desktop: 300 },
@@ -96,4 +96,6 @@ export const categoryData = {
       { month: "June", desktop: 185 },
     ],
   }
+  
+
   

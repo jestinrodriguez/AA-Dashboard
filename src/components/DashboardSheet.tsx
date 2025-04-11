@@ -6,7 +6,6 @@ import {
   SheetTitle,
   SheetTrigger,
 } from "./ui/sheet";
-import { Input } from "./ui/input";
 import CategorySelector from "./CategorySelector";
 import SearchBar from "./SearchBar";
 

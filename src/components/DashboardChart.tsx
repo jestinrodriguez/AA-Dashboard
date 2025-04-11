@@ -1,8 +1,5 @@
 import {
-  Area,
-  AreaChart,
   CartesianGrid,
-  Customized,
   Line,
   LineChart,
   ResponsiveContainer,
@@ -12,9 +9,7 @@ import {
 import {
   Card,
   CardContent,
-  CardDescription,
   CardHeader,
-  CardTitle,
 } from "../components/ui/card";
 import {
   ChartConfig,

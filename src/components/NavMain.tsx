@@ -1,6 +1,6 @@
 import { type LucideIcon } from "lucide-react";
 
-import { Collapsible, CollapsibleTrigger } from "../components/ui/collapsible";
+import { Collapsible } from "../components/ui/collapsible";
 import {
   SidebarGroup,
   SidebarGroupLabel,

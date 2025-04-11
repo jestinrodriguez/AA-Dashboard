@@ -6,7 +6,7 @@ import {
   CardHeader,
   CardTitle,
 } from "./ui/card";
-import { Badge, TrendingDownIcon, TrendingUpIcon } from "lucide-react";
+import { Badge, TrendingUpIcon } from "lucide-react";
 
 const DashboardCards = () => {
   const cardData = [
