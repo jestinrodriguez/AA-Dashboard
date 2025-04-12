@@ -11,7 +11,8 @@ type DashboardAccordionProps = {
 };
 
 const DashboardAccordion = ({ title }: DashboardAccordionProps) => (
-  <Accordion type="single" collapsible className="px-4">
+    <Accordion type="single" collapsible className="px-4">
+  {/* <Accordion type="single" defaultValue="item-1" collapsible className="px-4"> TESTING */}
     <AccordionItem value="item-1">
       <AccordionTrigger className="min-w-0 overflow-hidden hover:no-underline">
         <span className="flex items-center text-[#DCFF7FFD]">

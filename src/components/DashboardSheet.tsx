@@ -20,7 +20,7 @@ const DashboardSheet = () => {
     <Sheet>
       <SheetTrigger asChild>
         <Button variant="primary" className="text-white">
-          Edit Variable
+          Edit Variables
         </Button>
       </SheetTrigger>
       <SheetContent className="w-full sm:w-[40%] p-5 overflow-y-auto">
