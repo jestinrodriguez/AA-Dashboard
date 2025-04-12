@@ -143,12 +143,60 @@
   color: #B3E237;
 }
 
-h1{
-  font-size:32px;
+h1 {
+  font-size: 32px;
   font-weight: 700;
 }
 
-h2{
-  font-size:24px;
+h2 {
+  font-size: 24px;
   font-weight: 600;
+}
+
+h3 {
+  font-size: 22px;
+  font-weight: 500;
+}
+
+h4 {
+  font-size: 20px;
+  font-weight: 500;
+}
+
+/* Responsive adjustments for screens smaller than 768px (tablet & below) */
+@media (max-width: 1280px) {
+  h1 {
+    font-size: 24px;
+  }
+
+  h2 {
+    font-size: 20px;
+  }
+
+  h3 {
+    font-size: 18px;
+  }
+
+  h4 {
+    font-size: 16px;
+  }
+}
+
+/* Optional: even smaller screens like phones */
+@media (max-width: 768px) {
+  h1 {
+    font-size: 20px;
+  }
+
+  h2 {
+    font-size: 18px;
+  }
+
+  h3 {
+    font-size: 16px;
+  }
+
+  h4 {
+    font-size: 14px;
+  }
 }

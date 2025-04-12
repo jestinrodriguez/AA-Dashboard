@@ -40,17 +40,16 @@ const DashboardPage = () => {
               </Button>
             </div>
           </div>
-          <DashboardAccordion />
-
+          <DashboardAccordion title={"Best Scenario Results"} />
           <div className="grid grid-cols-1 sm:grid-cols-12 px-4 pt-7 gap-4">
-            <div className="sm:col-span-8 flex flex-col">
+            <div className="col-span-12 md:col-span-8 sm:col-span-7 flex flex-col">
               <h2 className="text-lg font-semibold mb-2">Graphs</h2>
               <div className="rounded-xl">
                 <DashboardChart />
               </div>
             </div>
 
-            <div className="sm:col-span-4 flex flex-col">
+            <div className="col-span-12 md:col-span-4 sm:col-span-5 flex flex-col">
               <h2 className="text-lg font-semibold mb-2">
                 Key Performance Indicators
               </h2>
@@ -60,8 +59,6 @@ const DashboardPage = () => {
             </div>
           </div>
         </main>
-
-
       </SidebarInset>
     </SidebarProvider>
   );

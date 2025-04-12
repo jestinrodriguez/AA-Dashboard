@@ -2,7 +2,6 @@ import {
   CartesianGrid,
   Line,
   LineChart,
-  ResponsiveContainer,
   XAxis,
   YAxis,
 } from "recharts";
@@ -22,10 +21,19 @@ import { categoryData } from "../data/dummy";
 
 const chartConfig = {
   desktop: {
-    label: "Desktop",
+    label: "Amount",
     color: "hsl(var(--chart-1))",
   },
 } satisfies ChartConfig;
+
+const defaultChartData = [
+  { month: "January", amount: 220 },
+  { month: "February", amount: 240 },
+  { month: "March", amount: 333 },
+  { month: "April", amount: 400 },
+  { month: "May", amount: 500 },
+  { month: "June", amount: 700 },
+];
 
 const DashboardChart = () => {
   const {
@@ -34,8 +42,10 @@ const DashboardChart = () => {
     selectedCategoriesSet3,
     selectedCategoriesSet4,
   } = useCategoryStore();
+
   // Combine selected category data from both sets
   const chartData = [
+    ...defaultChartData,
     ...selectedCategoriesSet1.flatMap(
       (category) => categoryData[category] || []
     ),
@@ -50,13 +60,22 @@ const DashboardChart = () => {
     ),
   ];
 
+  const aggregatedData = chartData.reduce((acc, curr) => {
+    const existingMonth = acc.find(item => item.month === curr.month);
+    if (existingMonth) {
+      existingMonth.amount += curr.amount; // Sum the amounts
+    } else {
+      acc.push({ ...curr });
+    }
+    return acc;
+  }, []);
+
   return (
     <Card className="dashboard-cards">
       <CardHeader>Unsatisfied Demand</CardHeader>
       <CardContent>
         <ChartContainer config={chartConfig} className="h-[375px] w-full">
-          <ResponsiveContainer width="100%" height="100%">
-            <LineChart data={chartData} margin={{ left: 12, right: 12 }}>
+            <LineChart data={aggregatedData} margin={{ left: 12, right: 12 }}>
               <CartesianGrid vertical={false} stroke="#e0e0e0" />
               <XAxis
                 dataKey="month"
@@ -65,16 +84,15 @@ const DashboardChart = () => {
                 tickMargin={8}
               />
               <YAxis tickLine={false} axisLine={false} tickMargin={8} />
-              <ChartTooltip content={<ChartTooltipContent indicator="dot" />} />
+              <ChartTooltip content={<ChartTooltipContent indicator="dot"/>} />
               <Line
-                dataKey="desktop"
+                dataKey="amount"
                 stroke="#C8E972"
                 strokeWidth={3}
                 dot={false}
                 type="linear"
               />
             </LineChart>
-          </ResponsiveContainer>
         </ChartContainer>
       </CardContent>
     </Card>

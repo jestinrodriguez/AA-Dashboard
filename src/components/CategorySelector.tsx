@@ -2,6 +2,7 @@ import { Check, Plus, Sparkles } from "lucide-react";
 import { cn } from "../lib/utils";
 import { useCategoryStore } from "../store/useCategoryStore";
 import { Button } from "./ui/button";
+import { useRef } from "react";
 
 type CategorySet1 = "Carbon 1" | "Co2 Distribution" | "Fleet sizing";
 type CategorySet2 = "Parking rate" | "Border rate" | "Request rate";
@@ -97,6 +98,20 @@ const CategorySelector: React.FC = () => {
     }
   };
 
+  const { setHoveredCategory } = useCategoryStore();
+  const timeoutRef = useRef<NodeJS.Timeout | null>(null);
+
+  const handleMouseEnter = (category: string) => {
+    timeoutRef.current = setTimeout(() => {
+      setHoveredCategory(category);
+    }, 1500);
+  };
+
+  const handleMouseLeave = () => {
+    clearTimeout(timeoutRef.current);
+    setHoveredCategory(null);
+  };
+
   return (
     <div>
       <div>
@@ -106,6 +121,8 @@ const CategorySelector: React.FC = () => {
             variant="toggle"
             key={category}
             onClick={() => handleCategorySelectSet1(category)}
+            onMouseEnter={() => handleMouseEnter(category)}
+            onMouseLeave={handleMouseLeave}
             className={cn(
               "mr-4 my-2",
               selectedCategoriesSet1.includes(category)
@@ -125,7 +142,6 @@ const CategorySelector: React.FC = () => {
           </Button>
         ))}
       </div>
-
       <div>
         <div>Category 2</div>
         {categoriesSet2.map((category) => (
@@ -133,6 +149,8 @@ const CategorySelector: React.FC = () => {
             variant="toggle"
             key={category}
             onClick={() => handleCategorySelectSet2(category)}
+            onMouseEnter={() => handleMouseEnter(category)}
+            onMouseLeave={handleMouseLeave}
             className={cn(
               "mr-4 my-2",
               selectedCategoriesSet2.includes(category)
@@ -152,7 +170,6 @@ const CategorySelector: React.FC = () => {
           </Button>
         ))}
       </div>
-
       <div>
         <div>Category 3</div>
         {categoriesSet3.map((category) => (
@@ -160,6 +177,8 @@ const CategorySelector: React.FC = () => {
             variant="toggle"
             key={category}
             onClick={() => handleCategorySelectSet3(category)}
+            onMouseEnter={() => handleMouseEnter(category)}
+            onMouseLeave={handleMouseLeave}
             className={cn(
               "mr-4 my-2",
               selectedCategoriesSet3.includes(category)
@@ -179,7 +198,6 @@ const CategorySelector: React.FC = () => {
           </Button>
         ))}
       </div>
-
       <div>
         <div>Category 4</div>
         {categoriesSet4.map((category) => (
@@ -187,6 +205,8 @@ const CategorySelector: React.FC = () => {
             variant="toggle"
             key={category}
             onClick={() => handleCategorySelectSet4(category)}
+            onMouseEnter={() => handleMouseEnter(category)}
+            onMouseLeave={handleMouseLeave}
             className={cn(
               "mr-4 my-2",
               selectedCategoriesSet4.includes(category)
