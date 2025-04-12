@@ -22,25 +22,26 @@ const defaultChartData = [
 
 const getIntroOfPage = (label) => {
   if (label === "January") {
-    return "Energy consumption peaks due to heating demands.";
+    return "Higher car charging demand as cold weather reduces battery efficiency.";
   }
   if (label === "February") {
-    return "Slight dip in energy usage, but still winter-heavy loads.";
+    return "Consistent charging activity, with a focus on maintaining battery health in lower temperatures.";
   }
   if (label === "March") {
-    return "Transition month — solar production begins to rise.";
+    return "Gradual increase in charging as vehicles prepare for longer commutes in spring.";
   }
   if (label === "April") {
-    return "Renewable energy generation increases with longer days.";
+    return "More frequent charging sessions as electric vehicles are used for road trips during the spring break.";
   }
   if (label === "May") {
-    return "Solar energy hits high output — reduced grid dependency.";
+    return "Increased car charging for vacations and longer weekend trips.";
   }
   if (label === "June") {
-    return "Peak solar generation; monitor cooling energy demand.";
+    return "Peak charging demand due to summer road trips and extended daylight hours.";
   }
   return "";
 };
+
 
 const CustomTooltip = ({ active, payload, label }) => {
   if (!active || !payload || !payload.length) return null;
