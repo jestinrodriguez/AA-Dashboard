@@ -73,11 +73,10 @@ const data = {
   ],
 };
 
-
 export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
   return (
     <Sidebar collapsible="icon" {...props}>
-      <SidebarHeader className="h-16 flex flex-start justify-center">
+      <SidebarHeader className="hidden h-16 sm:flex flex-start justify-center">
       <SidebarTrigger className="cursor-pointer"/>
       </SidebarHeader>
       <SidebarContent>

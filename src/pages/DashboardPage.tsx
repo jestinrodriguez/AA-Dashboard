@@ -16,24 +16,26 @@ const DashboardPage = () => {
         <header className="flex h-16 py-2 shrink-0 items-center gap-2 transition-[width,height] ease-linear group-has-[[data-collapsible=icon]]/sidebar-wrapper:h-16">
           <div className="flex w-full items-center justify-between px-4">
             <div className="flex gap-2 items-center">
-            <SidebarTrigger className="flex md:hidden cursor-pointer"/>
+            <SidebarTrigger className="flex sm:hidden cursor-pointer"/>
+              {/* Use tabs to navigate between pages */}
               <Button variant="primary" className="text-white">Charging Stations</Button>
-              <Button variant="inactive" className="text-white">Fleet Sizing</Button>
-              <Button variant="inactive" className="text-white">Parking</Button>
+              <div className="hidden sm:flex">
+                <Button variant="inactive" className="text-white">Fleet Sizing</Button>
+                <Button variant="inactive" className="text-white">Parking</Button>
+              </div>
             </div>
             <div>
               <SearchBar />
             </div>
           </div>
         </header>
-
         <main className="flex-1 bg-dashboard p-7 flex flex-col sm:min-h-0 sm:overflow-hidden">
-          <div className="flex items-center justify-between px-4 py-2">
-            <span className="flex items-center">
+          <div className="flex flex-col sm:flex-row items-center justify-between px-4 py-1">
+            <span className="flex items-center mb-3 sm:mb-0">
               <Zap size={30} className="mr-3" fill="currentColor" />
               <h1>Charging Station</h1>
             </span>
-            <div className="flex items-center gap-2">
+            <div className="flex items-center gap-2 mb-3 sm:mb-0">
               <Button variant="primary">
                 <History />
               </Button>

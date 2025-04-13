@@ -22,10 +22,10 @@ const DashboardAccordion = ({
 }: DashboardAccordionProps) => (
   <Accordion type="single" collapsible className={cn("px-4", className)}>
     <AccordionItem value="item-1">
-      <AccordionTrigger className="min-w-0 overflow-hidden hover:no-underline">
+      <AccordionTrigger className="min-w-0 overflow-hidden hover:no-underline items-center">
       <span style={{ color: textColor }} className="flex items-center">
           {icon && <Sparkles size={18} className="mr-2" />}
-          <h2>{title}</h2> {/* Apply dynamic text color */}
+          <h2>{title}</h2>
         </span>
       </AccordionTrigger>
       <AccordionContent>
