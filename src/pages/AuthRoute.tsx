@@ -1,34 +1,38 @@
 import React, { useEffect, useState } from 'react';
-import { getAuth, onAuthStateChanged } from 'firebase/auth';
 import { useNavigate } from 'react-router-dom';
+import { getAuth, onAuthStateChanged } from 'firebase/auth';
+import useAuthStore from '../store/useAuthStore';
 
-export interface IAuthRouteProps {
-    children: React.ReactNode;
+
+interface IAuthRouteProps {
+  children: React.ReactNode;
 }
 
-const AuthRoute: React.FunctionComponent<IAuthRouteProps> = (props) => {
-    const { children } = props;
-    const auth = getAuth();
-    const navigate = useNavigate();
-    const [ loading, setLoading ] = useState(true);
+const AuthRoute: React.FC<IAuthRouteProps> = ({ children }) => {
+  const auth = getAuth();
+  const navigate = useNavigate();
 
-    useEffect(() => {
-        const unsubscribe = onAuthStateChanged(auth, (user) => {
-            if (user) {
-                setLoading(false);
-            } else {
-                console.log('unauthorized');
-                setLoading(false);
-                navigate('/login')
-            }
-        });
-        return () => unsubscribe();
-    }, [auth, navigate]);
+  // Get the setUser function from Zustand store
+  const setUser = useAuthStore((state) => state.setUser);
 
-    if (loading) return <p></p>;
+  useEffect(() => {
+    const unsubscribe = onAuthStateChanged(auth, (user) => {
+      if (user) {
+        // Set the user in Zustand store when authenticated
+        setUser(user);
+      } else {
+        // If not authenticated, redirect to login and clear user
+        setUser(null);
+        console.log('unauthorized');
+        navigate('/login');
+      }
+    });
 
-    return <div>{ children }</div>;
+    // Cleanup the listener when the component unmounts
+    return () => unsubscribe();
+  }, [auth, navigate, setUser]);
 
-}
+  return <>{children}</>; // Render the protected route if authenticated
+};
 
-export default AuthRoute
+export default AuthRoute;

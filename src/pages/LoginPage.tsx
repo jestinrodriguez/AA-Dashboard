@@ -1,41 +1,36 @@
 import { useState } from 'react';
-import { GoogleAuthProvider, signInWithPopup, signInWithEmailAndPassword } from 'firebase/auth';
 import { useNavigate } from 'react-router-dom';
-import { auth } from '../firebase/firebase';
+import { doSignInWithEmailAndPassword, doSignInWithGoogle } from '../firebase/auth';
+import useAuthStore from '../store/useAuthStore';
 
 const Login = () => {
     const navigate = useNavigate();
-    const [authing, setAuthing] = useState(false);
-    const [email, setEmail] = useState('');
-    const [password, setPassword] = useState('');
+    const [isLoggingIn, setIsLoggingIn] = useState(false);
     const [error, setError] = useState('');
+    const { email, password, setEmail, setPassword } = useAuthStore();
 
-    const signInWithGoogle = async () => {
-        setAuthing(true);
-        signInWithPopup(auth, new GoogleAuthProvider())
-            .then(response => {
-                console.log(response.user.uid);
-                navigate('/');
-            })
-            .catch(error => {
-                console.log(error);
-                setAuthing(false);
-            });
+    const handleLogin = async () => {
+        setIsLoggingIn(true);
+        setError('');
+        try {
+            await doSignInWithEmailAndPassword(email, password);
+            navigate('/');
+        } catch (error: any) {
+            setError(error.message);
+            console.error(error);
+            setIsLoggingIn(false);
+        }
     };
 
-    const signInWithEmail = async () => {
-        setAuthing(true);
-        setError('');
-        signInWithEmailAndPassword(auth, email, password)
-            .then(response => {
-                console.log(response.user.uid);
-                navigate('/');
-            })
-            .catch(error => {
-                console.log(error);
-                setError(error.message);
-                setAuthing(false);
-            });
+    const handleGoogleLogin = async () => {
+        setIsLoggingIn(true);
+        try {
+            await doSignInWithGoogle();
+            navigate('/');
+        } catch (error: any) {
+            console.error(error);
+            setIsLoggingIn(false);
+        }
     };
 
     return (
@@ -63,8 +58,8 @@ const Login = () => {
                     <div className='w-full flex flex-col mb-4'>
                         <button
                             className='w-full bg-transparent border border-white text-white my-2 font-semibold rounded-md p-4 text-center flex items-center justify-center cursor-pointer'
-                            onClick={signInWithEmail}
-                            disabled={authing}>
+                            onClick={handleLogin}
+                            disabled={isLoggingIn}>
                             Log In With Email and Password
                         </button>
                     </div>
@@ -75,8 +70,8 @@ const Login = () => {
                     </div>
                     <button
                         className='w-full bg-white text-black font-semibold rounded-md p-4 text-center flex items-center justify-center cursor-pointer mt-7'
-                        onClick={signInWithGoogle}
-                        disabled={authing}>
+                        onClick={handleGoogleLogin}
+                        disabled={isLoggingIn}>
                         Log In With Google
                     </button>
                 </div>
@@ -86,6 +81,6 @@ const Login = () => {
             </div>
         </div>
     );
-}
+};
 
 export default Login;

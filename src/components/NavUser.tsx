@@ -1,4 +1,4 @@
-import { CircleUserRound, LogOut, UserRound } from "lucide-react";
+import { LogOut, UserRound } from "lucide-react";
 
 import { Avatar, AvatarFallback, AvatarImage } from "../components/ui/avatar";
 import {
@@ -22,9 +22,9 @@ export function NavUser({
   user,
 }: {
   user: {
-    name?: string;
-    email?: string;
-    avatar?: string;
+    name: string;
+    email: string;
+    avatar: string;
   };
 }) {
   const { isMobile } = useSidebar();
