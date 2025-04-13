@@ -114,21 +114,20 @@ const CategorySelector: React.FC = () => {
 
   return (
     <div>
-      <div>
-        <div>Category 1</div>
+      <div className="mb-2">
+        <div>Variable Category 1</div>
         {categoriesSet1.map((category) => (
           <Button
-            variant="toggle"
+            variant={
+              selectedCategoriesSet1.includes(category)
+                ? "secondary"
+                : "primary"
+            }
             key={category}
             onClick={() => handleCategorySelectSet1(category)}
             onMouseEnter={() => handleMouseEnter(category)}
             onMouseLeave={handleMouseLeave}
-            className={cn(
-              "mr-4 my-2",
-              selectedCategoriesSet1.includes(category)
-                ? "border-[#C9FF3B] text-[#C8E972FD] bg-[#CCFF001A]"
-                : "border-[#EEEEEE] text-[#D5D5D5]"
-            )}
+            className="mr-4 my-2 rounded-2xl"
           >
             {category}
             <div className="flex items-center ml-2">
@@ -142,21 +141,20 @@ const CategorySelector: React.FC = () => {
           </Button>
         ))}
       </div>
-      <div>
-        <div>Category 2</div>
+      <div className="mb-2">
+        <div>Variable Category 2</div>
         {categoriesSet2.map((category) => (
           <Button
-            variant="toggle"
+            variant={
+              selectedCategoriesSet2.includes(category)
+                ? "secondary"
+                : "primary"
+            }
             key={category}
             onClick={() => handleCategorySelectSet2(category)}
             onMouseEnter={() => handleMouseEnter(category)}
             onMouseLeave={handleMouseLeave}
-            className={cn(
-              "mr-4 my-2",
-              selectedCategoriesSet2.includes(category)
-                ? "border-green-400 text-green-400"
-                : "border-gray-700 text-white"
-            )}
+            className="mr-4 my-2 rounded-2xl"
           >
             {category}
             <div className="flex items-center ml-2">
@@ -170,21 +168,20 @@ const CategorySelector: React.FC = () => {
           </Button>
         ))}
       </div>
-      <div>
-        <div>Category 3</div>
+      <div className="mb-2">
+        <div>Variable Category 3</div>
         {categoriesSet3.map((category) => (
           <Button
-            variant="toggle"
+            variant={
+              selectedCategoriesSet3.includes(category)
+                ? "secondary"
+                : "primary"
+            }
             key={category}
             onClick={() => handleCategorySelectSet3(category)}
             onMouseEnter={() => handleMouseEnter(category)}
             onMouseLeave={handleMouseLeave}
-            className={cn(
-              "mr-4 my-2",
-              selectedCategoriesSet3.includes(category)
-                ? "border-green-400 text-green-400"
-                : "border-gray-700 text-white"
-            )}
+            className="mr-4 my-2 rounded-2xl"
           >
             {category}
             <div className="flex items-center ml-2">
@@ -198,21 +195,20 @@ const CategorySelector: React.FC = () => {
           </Button>
         ))}
       </div>
-      <div>
-        <div>Category 4</div>
+      <div className="mb-2">
+        <div>Variable Category 4</div>
         {categoriesSet4.map((category) => (
           <Button
-            variant="toggle"
+            variant={
+              selectedCategoriesSet4.includes(category)
+                ? "secondary"
+                : "primary"
+            }
             key={category}
             onClick={() => handleCategorySelectSet4(category)}
             onMouseEnter={() => handleMouseEnter(category)}
             onMouseLeave={handleMouseLeave}
-            className={cn(
-              "mr-4 my-2",
-              selectedCategoriesSet4.includes(category)
-                ? "border-green-400 text-green-400"
-                : "border-gray-700 text-white"
-            )}
+            className="mr-4 my-2 rounded-2xl"
           >
             {category}
             <div className="flex items-center ml-2">

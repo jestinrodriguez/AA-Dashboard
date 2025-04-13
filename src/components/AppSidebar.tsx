@@ -21,8 +21,6 @@ import { getAuth } from "firebase/auth";
 const auth = getAuth();
 const user = auth.currentUser;
 
-console.log(user)
-
 const data = {
   user: {
     name: user?.displayName,

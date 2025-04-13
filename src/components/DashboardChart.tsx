@@ -10,6 +10,8 @@ import { Card, CardContent, CardHeader } from "../components/ui/card";
 import { ChartTooltip } from "../components/ui/chart";
 import { useCategoryStore } from "../store/useCategoryStore";
 import { categoryData } from "../data/dummy";
+import { Button } from "./ui/button";
+import { ChevronDown } from "lucide-react";
 
 const defaultChartData = [
   { month: "January", amount: 220 },
@@ -42,20 +44,23 @@ const getIntroOfPage = (label) => {
   return "";
 };
 
-
 const CustomTooltip = ({ active, payload, label }) => {
   if (!active || !payload || !payload.length) return null;
   return (
-<div className="bg-[#2c2d2f] p-2 sm:p-3 rounded-md shadow-lg w-full max-w-[50vw] sm:max-w-xs transition-all duration-200 ease-out animate-fadeIn border border-[#3b3c3f]">
-  <p className="text-[10px] sm:text-xs text-[#e4e4e7] font-medium mb-1">{label}</p>
-  <p className="text-base sm:text-lg font-bold text-[#C8E972] flex items-center gap-1 mb-1">
-    ⚡ {payload[0].value}
-  </p>
-  <p className="text-[10px] sm:text-xs text-[#a1a1aa] mb-1">{getIntroOfPage(label)}</p>
-  <p className="text-[10px] sm:text-xs text-[#d1d1d6] italic leading-tight">
-    View energy trend insights for this month.
-  </p>
-</div>
+    <div className="bg-[#2c2d2f] p-2 sm:p-3 rounded-md shadow-lg w-full max-w-[50vw] sm:max-w-xs transition-all duration-200 ease-out animate-fadeIn border border-[#3b3c3f]">
+      <p className="text-[10px] sm:text-xs text-[#e4e4e7] font-medium mb-1">
+        {label}
+      </p>
+      <p className="text-base sm:text-lg font-bold text-[#C8E972] flex items-center gap-1 mb-1">
+        ⚡ {payload[0].value}
+      </p>
+      <p className="text-[10px] sm:text-xs text-[#a1a1aa] mb-1">
+        {getIntroOfPage(label)}
+      </p>
+      <p className="text-[10px] sm:text-xs text-[#d1d1d6] italic leading-tight">
+        View energy trend insights for this month.
+      </p>
+    </div>
   );
 };
 
@@ -95,7 +100,17 @@ const DashboardChart = () => {
   }, []);
   return (
     <Card className="dashboard-cards flex flex-col flex-1 h-full overflow-hidden">
-      <CardHeader>Unsatisfied Demand</CardHeader>
+      <CardHeader className="text-end">
+        <div>
+          <Button
+            variant="inactive"
+            className="text-white bg-[#18181A80] border not-odd:border-[#5A5A5AA1]"
+          >
+            Unsatisfied Demand %
+            <ChevronDown />
+          </Button>
+        </div>
+      </CardHeader>
       <CardContent className="flex-1 min-h-0 flex flex-col">
         <div className="flex-1 min-h-0">
           <ResponsiveContainer width="100%" height="100%">

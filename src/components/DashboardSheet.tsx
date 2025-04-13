@@ -11,7 +11,7 @@ import SearchBar from "./SearchBar";
 import { useCategoryStore } from "../store/useCategoryStore";
 import DashboardAccordion from "./DashboardAccordion";
 import { categoryDetails } from "../data/dummy";
-import { Info } from "lucide-react";
+import { Info, RotateCw, Sparkle, Sparkles } from "lucide-react";
 import { cn } from "../lib/utils";
 
 const DashboardSheet = () => {
@@ -27,10 +27,22 @@ const DashboardSheet = () => {
         <SheetHeader className="p-0 pt-2">
           <SheetTitle className="text-white">Edit Variables</SheetTitle>
         </SheetHeader>
-        <div className="flex gap-3">
-          <SearchBar />
-          <Button variant="primary">Autofill</Button>
-          <Button variant="primary">Rerun</Button>
+        <div className="flex items-center gap-3">
+          <div className="flex-grow">
+            <SearchBar />
+          </div>
+          <Button variant="primary">
+            <span className="flex items-center gap-2">
+              <Sparkles />
+              Autofill
+            </span>
+          </Button>
+          <Button variant="secondary">
+            <span className="flex items-center gap-2">
+              <RotateCw />
+              Rerun
+            </span>
+          </Button>
         </div>
         <div className="max-h-[600px]">
           <div className="bg-dashboard !bg-[#161618] p-6 max-h-[400px] overflow-y-auto !rounded-b-none">
@@ -57,13 +69,13 @@ const DashboardSheet = () => {
         </div>
         <DashboardAccordion
           title="Primary Variable"
-          className="bg-[#222324] border border-[#525252] rounded-sm"
+          className="bg-[#222324] border border-[#525252] rounded-sm font-medium"
           icon={false}
           textColor="#C8E972"
         />
         <DashboardAccordion
           title="Secondary Variable"
-          className="bg-[#222324] border border-[#525252] rounded-sm"
+          className="bg-[#222324] border border-[#525252] rounded-sm font-medium"
           icon={false}
           textColor="#C8E972"
         />
