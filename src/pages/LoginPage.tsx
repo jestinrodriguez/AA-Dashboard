@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { GoogleAuthProvider, signInWithPopup, signInWithEmailAndPassword } from 'firebase/auth';
-import { useNavigate } from 'react-router-dom';import { auth } from '../firebase/firebase';
+import { useNavigate } from 'react-router-dom';
+import { auth } from '../firebase/firebase';
 
 const Login = () => {
     const navigate = useNavigate();
@@ -39,8 +40,7 @@ const Login = () => {
 
     return (
         <div className='w-full h-screen flex'>
-            <div className='w-1/2 h-full flex flex-col bg-[#282c34] items-center justify-center'></div>
-            <div className='w-1/2 h-full bg-[#1a1a1a] flex flex-col p-20 justify-center'>
+            <div className='w-full h-full bg-background flex flex-col p-20 justify-center'>
                 <div className='w-full flex flex-col max-w-[450px] mx-auto'>
                     <div className='w-full flex flex-col mb-10 text-white'>
                         <h3 className='text-4xl font-bold mb-2'>Login</h3>

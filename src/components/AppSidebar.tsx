@@ -16,11 +16,18 @@ import { SidebarTrigger } from "./ui/sidebar";
 import { NavMain } from "./NavMain";
 import { NavUser } from "./NavUser";
 
+import { getAuth } from "firebase/auth";
+
+const auth = getAuth();
+const user = auth.currentUser;
+
+console.log(user)
+
 const data = {
   user: {
-    name: "shadcn",
-    email: "m@example.com",
-    avatar: "/avatars/shadcn.jpg",
+    name: user?.displayName,
+    email: user?.email,
+    avatar: user?.photoURL,
   },
   navMain: [
     {
@@ -66,11 +73,12 @@ const data = {
   ],
 };
 
+
 export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
   return (
     <Sidebar collapsible="icon" {...props}>
-      <SidebarHeader>
-        <SidebarTrigger className="w-8 h-8"></SidebarTrigger>
+      <SidebarHeader className="h-16 flex flex-start justify-center">
+      <SidebarTrigger className="cursor-pointer"/>
       </SidebarHeader>
       <SidebarContent>
         <NavMain items={data.navMain} />

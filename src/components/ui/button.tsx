@@ -25,6 +25,8 @@ const buttonVariants = cva(
         "bg-[#595959] border transition-all duration-200 rounded-2xl px-4 py-2",
         primary:
         "bg-[#242424] border border-[#5a5a5a] text-[#B9B9B9] rounded hover:bg-background/10 cursor-pointer transition-all duration-200",
+        inactive:
+        "bg-background text-[#B9B9B9] rounded hover:bg-[#242424] cursor-pointer transition-all duration-200",
       },
       size: {
         default: "h-9 px-4 py-2 has-[>svg]:px-3",

@@ -56,12 +56,8 @@ const Signup = () => {
 
     return (
         <div className='w-full h-screen flex'>
-            {/* Left half of the screen - background styling */}
-            <div className='w-1/2 h-full flex flex-col bg-[#282c34] items-center justify-center'>
-            </div>
-
             {/* Right half of the screen - signup form */}
-            <div className='w-1/2 h-full bg-[#1a1a1a] flex flex-col p-20 justify-center'>
+            <div className='w-full h-full bg-background flex flex-col p-20 justify-center'>
                 <div className='w-full flex flex-col max-w-[450px] mx-auto'>
                     {/* Header section with title and welcome message */}
                     <div className='w-full flex flex-col mb-10 text-white'>

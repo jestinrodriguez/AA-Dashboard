@@ -1,4 +1,4 @@
-import { type LucideIcon } from "lucide-react";
+import { Home, type LucideIcon } from "lucide-react";
 
 import { Collapsible } from "../components/ui/collapsible";
 import {
@@ -28,19 +28,12 @@ export function NavMain({
       <SidebarGroupLabel>Dashboard</SidebarGroupLabel>
       <SidebarMenu>
         {items.map((item) => (
-          <Collapsible
-            key={item.title}
-            asChild
-            defaultOpen={item.isActive}
-            className="group/collapsible"
-          >
-            <SidebarMenuItem>
-              <SidebarMenuButton tooltip={item.title}>
-                {item.icon && <item.icon />}
+            <SidebarMenuItem key={item.title}>
+              <SidebarMenuButton tooltip={item.title} className="cursor-pointer">
+                {item.icon && <item.icon/>}
                 <span>{item.title}</span>
               </SidebarMenuButton>
             </SidebarMenuItem>
-          </Collapsible>
         ))}
       </SidebarMenu>
     </SidebarGroup>

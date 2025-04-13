@@ -15,18 +15,20 @@ import {
   SidebarMenuItem,
   useSidebar,
 } from "../components/ui/sidebar";
+import { useNavigate } from "react-router-dom";
+import { doSignOut } from "../firebase/auth";
 
 export function NavUser({
   user,
 }: {
   user: {
-    name: string;
-    email: string;
-    avatar: string;
+    name?: string;
+    email?: string;
+    avatar?: string;
   };
 }) {
   const { isMobile } = useSidebar();
-
+  const navigate = useNavigate();
   return (
     <SidebarMenu>
       <SidebarMenuItem>
@@ -65,8 +67,8 @@ export function NavUser({
               </div>
             </DropdownMenuLabel>
             <DropdownMenuSeparator />
-            <DropdownMenuItem>
-              <LogOut />
+            <DropdownMenuItem onClick={() => { doSignOut().then(() => { navigate('/login') }) }}>
+              <LogOut/>
               Log out
             </DropdownMenuItem>
           </DropdownMenuContent>
