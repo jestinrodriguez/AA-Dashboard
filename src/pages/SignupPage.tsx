@@ -9,6 +9,7 @@ import { Button } from "../components/ui/button";
 import { Input } from "../components/ui/input";
 import { signupSchema } from "../schema/authSchema";
 import { toast } from "sonner";
+import Spinner from "../components/Spinner";
 
 const Signup = () => {
   const navigate = useNavigate();
@@ -30,7 +31,8 @@ const Signup = () => {
       await doSignInWithGoogle();
       navigate("/");
     } catch (error: any) {
-      console.error(error);
+      toast.dismiss();
+      toast.error(error.message);
       setIsSigningUp(false);
     }
   };
@@ -51,7 +53,8 @@ const Signup = () => {
       await doCreateUserWithEmailAndPassword(email, password);
       navigate("/");
     } catch (error: any) {
-      console.error(error);
+      toast.dismiss();
+      toast.error(error.message);
       setIsSigningUp(false);
     }
   };
@@ -93,7 +96,7 @@ const Signup = () => {
                 disabled={isSigningUp}
                 variant="primary"
               >
-                Sign Up With Email and Password
+                {isSigningUp ? <Spinner /> : 'Sign Up With Email and Password'}
               </Button>
             </div>
             <div className="w-full flex items-center justify-center relative py-4">
@@ -105,7 +108,7 @@ const Signup = () => {
               variant="secondary"
               className="w-full"
             >
-              Sign Up With Google
+                {isSigningUp ? <Spinner /> : 'Sign Up With Google'}
             </Button>
           </form>
         </div>

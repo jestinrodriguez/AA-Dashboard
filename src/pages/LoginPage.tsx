@@ -9,6 +9,7 @@ import { Input } from "../components/ui/input";
 import { Button } from "../components/ui/button";
 import { loginSchema } from "../schema/authSchema";
 import { toast } from "sonner";
+import Spinner from "../components/Spinner";
 
 const Login = () => {
   const navigate = useNavigate();
@@ -38,7 +39,6 @@ const Login = () => {
 
   const handleGoogleLogin = async () => {
     setIsLoggingIn(true);
-    setError("");
     try {
       await doSignInWithGoogle();
       navigate("/");
@@ -75,7 +75,7 @@ const Login = () => {
             </div>
             <div className="w-full flex flex-col mb-4">
               <Button variant="primary" disabled={isLoggingIn} type="submit">
-                Log In With Email and Password
+                {isLoggingIn ? <Spinner /> : "Log In With Email and Password"}
               </Button>
             </div>
             <div className="w-full flex items-center justify-center relative py-4">
@@ -87,7 +87,7 @@ const Login = () => {
               disabled={isLoggingIn}
               className="w-full"
             >
-              Log In With Google
+              {isLoggingIn ? <Spinner /> : 'Log In With Email and Password'}
             </Button>
           </form>
         </div>
