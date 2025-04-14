@@ -101,7 +101,7 @@ const CategorySelector: React.FC = () => {
   const { setHoveredCategory } = useCategoryStore();
   const timeoutRef = useRef<NodeJS.Timeout | null>(null);
 
-  const handleMouseEnter = (category: string) => {
+  const handleMouseEnter = (category: any) => {
     setLoadingCategory(true);
     timeoutRef.current = setTimeout(() => {
       setHoveredCategory(category);
