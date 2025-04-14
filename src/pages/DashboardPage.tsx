@@ -59,7 +59,7 @@ const DashboardPage = () => {
           <div className="grid grid-cols-1 sm:grid-cols-12 px-4 pt-5 gap-4 h-full min-h-screen xl:min-h-0">
             <div className="col-span-12 xl:col-span-8 flex flex-col h-full min-h-0">
               <h2 className="text-lg font-semibold mb-2">Graphs</h2>
-              <div className="rounded-xs flex-1 h-full min-h-0 flex flex-col">
+              <div className="rounded-xs flex-1 h-full min-h-[250px] sm:min-h-0 flex flex-col">
                 <DashboardChart />
               </div>
             </div>
@@ -70,7 +70,7 @@ const DashboardPage = () => {
                 </h2>
                 <Button
                   variant="inactive"
-                  className="text-white bg-[#18181A80] border not-odd:border-[#5A5A5AA1]"
+                  className="text-white bg-[#18181A80] border not-odd:border-[#5A5A5AA1] hidden sm:flex"
                 >
                   Variables
                   <Plus />
