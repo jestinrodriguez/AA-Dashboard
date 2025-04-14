@@ -165,7 +165,6 @@ h4 {
   font-weight: 500;
 }
 
-/* Responsive adjustments for screens smaller than 768px (tablet & below) */
 @media (max-width: 1280px) {
   h1 {
     font-size: 24px;
@@ -184,7 +183,6 @@ h4 {
   }
 }
 
-/* Optional: even smaller screens like phones */
 @media (max-width: 768px) {
   h1 {
     font-size: 20px;

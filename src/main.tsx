@@ -7,6 +7,7 @@ import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-d
 import Login from './pages/LoginPage.tsx'
 import Signup from './pages/SignupPage.tsx'
 import AuthRoute from './pages/AuthRoute.tsx'
+import { Toaster } from 'sonner'
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
@@ -18,5 +19,6 @@ createRoot(document.getElementById('root')!).render(
         <Route path="*" element={<Navigate to="/" />} />
       </Routes>
     </Router>
+    <Toaster theme="dark" richColors position="top-center" />
   </StrictMode>,
 )

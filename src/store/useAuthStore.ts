@@ -1,7 +1,5 @@
 import { User } from 'firebase/auth';
 import { create } from 'zustand';
-
-
 interface AuthState {
   email: string;
   password: string;
@@ -22,8 +20,8 @@ const useAuthStore = create<AuthState>((set) => ({
   setPassword: (password) => set({ password }),
   setConfirmedPassword: (confirmPassword) => set({ confirmPassword }),
   resetCredentials: () => set({ email: '', password: '' }),
-  user: null, // Default user state is null
-  setUser: (user) => set({ user }), // This function sets the user,
+  user: null,
+  setUser: (user) => set({ user }),
 }));
 
 export default useAuthStore;
