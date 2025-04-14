@@ -11,11 +11,12 @@ import SearchBar from "./SearchBar";
 import { useCategoryStore } from "../store/useCategoryStore";
 import DashboardAccordion from "./DashboardAccordion";
 import { categoryDetails } from "../data/dummy";
-import { Info, RotateCw, Sparkle, Sparkles } from "lucide-react";
+import { Info, RotateCw, Sparkles } from "lucide-react";
 import { cn } from "../lib/utils";
+import Spinner from "./Spinner";
 
 const DashboardSheet = () => {
-  const { hoveredCategory } = useCategoryStore();
+  const { hoveredCategory, loadingCategory } = useCategoryStore();
   return (
     <Sheet>
       <SheetTrigger asChild>
@@ -57,15 +58,22 @@ const DashboardSheet = () => {
             )}
           >
             <div className={hoveredCategory ? "block" : "hidden"}>
-              <h4 className="pb-3">
-                <div className="flex items-center">
-                  {hoveredCategory}
-                  <Info className="ml-2" size={15} />
-                </div>
-              </h4>
-              <div>{categoryDetails[hoveredCategory]?.longDesc}</div>
+              <div>
+                <h4 className="pb-3">
+                  <div className="flex items-center">
+                    {hoveredCategory}
+                    <Info className="ml-2" size={15} />
+                  </div>
+                </h4>
+                <div>{categoryDetails[hoveredCategory]?.longDesc}</div>
+              </div>
             </div>
           </div>
+          {loadingCategory && !hoveredCategory && (
+            <div className="text-sm text-gray-300 flex items-center justify-center p-2">
+              <Spinner />
+            </div>
+          )}
         </div>
         <DashboardAccordion
           title="Primary Variable"

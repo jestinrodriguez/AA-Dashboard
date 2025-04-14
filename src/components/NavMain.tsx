@@ -1,6 +1,4 @@
-import { Home, type LucideIcon } from "lucide-react";
-
-import { Collapsible } from "../components/ui/collapsible";
+import { type LucideIcon } from "lucide-react";
 import {
   SidebarGroup,
   SidebarGroupLabel,

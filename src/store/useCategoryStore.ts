@@ -22,6 +22,8 @@ interface CategoryState {
   setSelectedCategoriesSet4: (categories: CategorySet4[]) => void
   hoveredCategory: string | null
   setHoveredCategory: (category: AllCategories | null) => void
+  loadingCategory: boolean;
+  setLoadingCategory: (loading: boolean) => void;
 }
 
 export const useCategoryStore = create<CategoryState>((set) => ({
@@ -35,4 +37,6 @@ export const useCategoryStore = create<CategoryState>((set) => ({
   setSelectedCategoriesSet4: (categories) => set({ selectedCategoriesSet4: categories }),
   hoveredCategory: null,
   setHoveredCategory: (category) => set({ hoveredCategory: category }),
+  loadingCategory: false,
+  setLoadingCategory: (loading) => set({ loadingCategory: loading }),
 }))

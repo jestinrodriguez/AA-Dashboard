@@ -1,12 +1,8 @@
 import React from "react";
 import {
-  Card,
-  CardDescription,
-  CardFooter,
-  CardHeader,
-  CardTitle,
+  Card
 } from "./ui/card";
-import { Badge, CircleHelp, TrendingUpIcon } from "lucide-react";
+import { CircleHelp, TrendingUpIcon } from "lucide-react";
 
 const DashboardCards = () => {
   const cardData = [

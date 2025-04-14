@@ -11,7 +11,7 @@ type DashboardAccordionProps = {
   title: string;
   className?: string;
   icon?: boolean;
-  textColor?: string; // Dynamically passed color value
+  textColor?: string;
 };
 
 const DashboardAccordion = ({

@@ -19,6 +19,7 @@ const CategorySelector: React.FC = () => {
     setSelectedCategoriesSet3,
     selectedCategoriesSet4,
     setSelectedCategoriesSet4,
+    setLoadingCategory
   } = useCategoryStore();
 
   const categoriesSet1: CategorySet1[] = [
@@ -102,13 +103,16 @@ const CategorySelector: React.FC = () => {
   const timeoutRef = useRef<NodeJS.Timeout | null>(null);
 
   const handleMouseEnter = (category: string) => {
+    setLoadingCategory(true);
     timeoutRef.current = setTimeout(() => {
       setHoveredCategory(category);
+      setLoadingCategory(false);
     }, 1500);
   };
 
   const handleMouseLeave = () => {
-    clearTimeout(timeoutRef.current);
+    if (timeoutRef.current) clearTimeout(timeoutRef.current);
+    setLoadingCategory(false);
     setHoveredCategory(null);
   };
 
