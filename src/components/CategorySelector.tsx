@@ -1,5 +1,4 @@
 import { Check, Plus, Sparkles } from "lucide-react";
-import { cn } from "../lib/utils";
 import { useCategoryStore } from "../store/useCategoryStore";
 import { Button } from "./ui/button";
 import { useRef } from "react";

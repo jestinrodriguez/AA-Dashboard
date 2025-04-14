@@ -1,54 +1,86 @@
-# React + TypeScript + Vite
+# 📊 Project Dashboard
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+**Live Site:** [Click here to view the live website](#)  
+*(Please replace `#` with your actual deployment URL)*
 
-Currently, two official plugins are available:
+## 🚀 Setup Instructions
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/your-username/your-project.git
+   cd your-project
+   ```
 
-## Expanding the ESLint configuration
+2. Install dependencies:
+   ```bash
+   npm install
+   ```
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+3. Start local development server:
+   ```bash
+   npm run dev
+   ```
 
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+> 🔐 **Note:** Kindly message me directly to receive the required `.env` variables.
+
+---
+
+## ✨ Features Implemented
+
+- UI Dashboard
+- Data Visualization
+- Loading and Error Handling
+- Mobile Responsiveness
+- Sidebar Navigation
+
+---
+
+## 🛠️ Tech Stack
+
+- **React** with **TypeScript**
+- **TailwindCSS** for styling
+- **ShadCN UI** – component library
+- **Firebase Authentication**
+- **Zod** – form validation
+- **React Router** for navigation
+
+---
+
+## ⚠️ Known Limitations
+
+- Due to using **ShadCN UI**, some components are challenging to fully customize.
+- **Roobert (TRIAL)** font couldn't be used – replaced with **Inter** font instead.
+- Different **Google login implementation** than standard – tailored for the project’s specific needs.
+
+---
+
+## 💡 Notes on Auth Implementation
+
+Consider separating Google login behavior in the following cases:
+
+- **Custom User Flows:** For handling new users uniquely (e.g., onboarding, collecting extra profile data, tracking, etc.).
+
+---
+
+## ⏱️ Time Spent
+
+- 1–2 hours: Design ideation
+- 2–4 hours: UI implementation
+- 1–2 hours: Firebase Auth error handling & Zod validation
+- 30 mins: Router navigation setup
+- 2–3 hours: Debugging, additional testing, and UI polishing
+
+> ⏳ **Note:** While the original estimate was approximately 5 hours, I took extra time to ensure high quality and functionality. I focused on polishing the UI, fixing bugs, and validating the experience to make sure it worked smoothly. I believe this extra effort was valuable in delivering a complete and reliable result.
+
+---
+
+## 🧪 Local Development
+
+To run this project locally:
+
+```bash
+npm install
+npm run dev
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
-
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
-```
+Ensure you have the required environment variables in a `.env` file. Feel free to reach out to me for access.

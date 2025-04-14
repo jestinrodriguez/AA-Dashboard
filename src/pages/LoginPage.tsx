@@ -87,7 +87,7 @@ const Login = () => {
               disabled={isLoggingIn}
               className="w-full"
             >
-              {isLoggingIn ? <Spinner /> : 'Log In With Email and Password'}
+              {isLoggingIn ? <Spinner /> : 'Log In With Google'}
             </Button>
           </form>
         </div>

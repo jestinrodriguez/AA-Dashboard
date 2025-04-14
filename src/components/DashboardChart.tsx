@@ -12,6 +12,7 @@ import { useCategoryStore } from "../store/useCategoryStore";
 import { categoryData } from "../data/dummy";
 import { Button } from "./ui/button";
 import { ChevronDown } from "lucide-react";
+import CustomTooltip from "./CustomTooltip";
 
 const defaultChartData = [
   { month: "January", amount: 220 },
@@ -21,48 +22,6 @@ const defaultChartData = [
   { month: "May", amount: 500 },
   { month: "June", amount: 700 },
 ];
-
-const getIntroOfPage = (label) => {
-  if (label === "January") {
-    return "Higher car charging demand as cold weather reduces battery efficiency.";
-  }
-  if (label === "February") {
-    return "Consistent charging activity, with a focus on maintaining battery health in lower temperatures.";
-  }
-  if (label === "March") {
-    return "Gradual increase in charging as vehicles prepare for longer commutes in spring.";
-  }
-  if (label === "April") {
-    return "More frequent charging sessions as electric vehicles are used for road trips during the spring break.";
-  }
-  if (label === "May") {
-    return "Increased car charging for vacations and longer weekend trips.";
-  }
-  if (label === "June") {
-    return "Peak charging demand due to summer road trips and extended daylight hours.";
-  }
-  return "";
-};
-
-const CustomTooltip = ({ active, payload, label }) => {
-  if (!active || !payload || !payload.length) return null;
-  return (
-    <div className="bg-[#2c2d2f] p-2 sm:p-3 rounded-md shadow-lg w-full max-w-[50vw] sm:max-w-xs transition-all duration-200 ease-out animate-fadeIn border border-[#3b3c3f]">
-      <p className="text-[10px] sm:text-xs text-[#e4e4e7] font-medium mb-1">
-        {label}
-      </p>
-      <p className="text-base sm:text-lg font-bold text-[#C8E972] flex items-center gap-1 mb-1">
-        ⚡ {payload[0].value}
-      </p>
-      <p className="text-[10px] sm:text-xs text-[#a1a1aa] mb-1">
-        {getIntroOfPage(label)}
-      </p>
-      <p className="text-[10px] sm:text-xs text-[#d1d1d6] italic leading-tight">
-        View energy trend insights for this month.
-      </p>
-    </div>
-  );
-};
 
 const DashboardChart = () => {
   const {
@@ -89,15 +48,20 @@ const DashboardChart = () => {
     ),
   ];
 
-  const aggregatedData = chartData.reduce((acc, curr) => {
+  type DataPoint = {
+    month: string;
+    amount: number;
+  };
+  const aggregatedData = chartData.reduce<DataPoint[]>((acc, curr) => {
     const existingMonth = acc.find((item) => item.month === curr.month);
     if (existingMonth) {
-      existingMonth.amount += curr.amount; // Sum the amounts
+      existingMonth.amount += curr.amount;
     } else {
       acc.push({ ...curr });
     }
     return acc;
   }, []);
+  
   return (
     <Card className="dashboard-cards flex flex-col flex-1 h-full overflow-hidden">
       <CardHeader className="text-end">

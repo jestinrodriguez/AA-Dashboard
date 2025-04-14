@@ -7,20 +7,22 @@ import {
   SidebarMenuItem,
 } from "../components/ui/sidebar";
 
-export function NavMain({
-  items,
-}: {
-  items: {
+interface NavItem {
+  title: string;
+  url: string;
+  icon?: LucideIcon;
+  isActive?: boolean;
+  items?: {
     title: string;
     url: string;
-    icon?: LucideIcon;
-    isActive?: boolean;
-    items?: {
-      title: string;
-      url: string;
-    }[];
   }[];
-}) {
+}
+
+interface NavMainProps {
+  items: NavItem[];
+}
+
+const NavMain = ({ items }: NavMainProps) => {
   return (
     <SidebarGroup>
       <SidebarGroupLabel>Dashboard</SidebarGroupLabel>
@@ -37,3 +39,5 @@ export function NavMain({
     </SidebarGroup>
   );
 }
+
+export default NavMain;

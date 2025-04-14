@@ -17,16 +17,15 @@ import {
 } from "../components/ui/sidebar";
 import { useNavigate } from "react-router-dom";
 import { doSignOut } from "../firebase/auth";
-
-export function NavUser({
-  user,
-}: {
+interface NavUserProps {
   user: {
     name: string;
     email: string;
     avatar: string;
   };
-}) {
+}
+
+const NavUser = ({ user }: NavUserProps) => {
   const { isMobile } = useSidebar();
   const navigate = useNavigate();
   return (
@@ -81,3 +80,5 @@ export function NavUser({
     </SidebarMenu>
   );
 }
+
+export default NavUser;

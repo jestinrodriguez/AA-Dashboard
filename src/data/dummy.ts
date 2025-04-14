@@ -97,7 +97,12 @@ export const categoryData = {
     ],
   }
 
-  export const categoryDetails = {
+  type CategoryDetail = {
+    shortDesc?: string;
+    longDesc?: string;
+  };
+
+  export const categoryDetails: Record<string, CategoryDetail> = {
     'Carbon 1': {
       shortDesc: "This category covers carbon emissions data.",
       longDesc: "This category discusses various aspects of carbon emissions, including factors affecting carbon production, global impact, and strategies for reduction.",

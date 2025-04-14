@@ -65,7 +65,7 @@ const DashboardSheet = () => {
                     <Info className="ml-2" size={15} />
                   </div>
                 </h4>
-                <div>{categoryDetails[hoveredCategory]?.longDesc}</div>
+                <div>{hoveredCategory && categoryDetails[hoveredCategory]?.longDesc}</div>
               </div>
             </div>
           </div>

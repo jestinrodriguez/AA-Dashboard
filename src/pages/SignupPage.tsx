@@ -25,7 +25,7 @@ const Signup = () => {
   } = useAuthStore();
 
   // Function to handle sign-up with Google
-  const signUpWithGoogle = async () => {
+  const handleSignUpGoogle = async () => {
     setIsSigningUp(true);
     try {
       await doSignInWithGoogle();
@@ -38,9 +38,9 @@ const Signup = () => {
   };
 
   // Function to handle sign-up with email and password
-  const signUpWithEmail = async (e?: React.FormEvent) => {
+  const handleSignUp = async (e?: React.FormEvent) => {
     if (e) e.preventDefault();
-    const validation = signupSchema.safeParse({ email, password });
+    const validation = signupSchema.safeParse({ email, password, confirmPassword });
 
     if (!validation.success) {
       const firstError = validation.error.errors[0];
@@ -66,7 +66,7 @@ const Signup = () => {
           <div className="w-full flex flex-col mb-10 text-white">
             <h3 className="text-4xl font-bold mb-2">Sign Up</h3>
           </div>
-          <form>
+          <form onSubmit={handleSignUp}>
             <div className="w-full flex flex-col mb-6">
               <Input
                 type="email"
@@ -92,7 +92,7 @@ const Signup = () => {
             </div>
             <div className="w-full flex flex-col mb-4">
               <Button
-                onClick={signUpWithEmail}
+                type="submit"
                 disabled={isSigningUp}
                 variant="primary"
               >
@@ -103,7 +103,7 @@ const Signup = () => {
                 OR
             </div>
             <Button
-              onClick={signUpWithGoogle}
+              onClick={handleSignUpGoogle}
               disabled={isSigningUp}
               variant="secondary"
               className="w-full"

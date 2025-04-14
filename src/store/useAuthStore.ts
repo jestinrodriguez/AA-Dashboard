@@ -8,7 +8,7 @@ interface AuthState {
   setPassword: (password: string) => void;
   setConfirmedPassword: (confirmPassword: string) => void;
   resetCredentials: () => void;
-  user: User | null; // This should be of type `User | null`
+  user: User | null;
   setUser: (user: User | null) => void;
 }
 

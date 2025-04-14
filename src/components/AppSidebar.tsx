@@ -13,9 +13,9 @@ import {
   SidebarHeader,
 } from "../components/ui/sidebar";
 import { SidebarTrigger } from "./ui/sidebar";
-import { NavMain } from "./NavMain";
-import { NavUser } from "./NavUser";
 import useAuthStore from "../store/useAuthStore";
+import NavMain from "./NavMain";
+import NavUser from "./NavUser";
 
 const data = {
   navMain: [
