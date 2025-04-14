@@ -39,7 +39,7 @@ const DashboardPage = () => {
             </div>
           </div>
         </header>
-        <main className="flex-1 bg-dashboard p-7 flex flex-col xl:overflow-y-auto">
+        <main className="flex-1 bg-dashboard p-3 sm:p-7 flex flex-col xl:overflow-y-auto">
           <div className="flex flex-col sm:flex-row items-center justify-between px-4 py-1">
             <span className="flex items-center mb-3 sm:mb-0">
               <Zap size={30} className="mr-3" fill="currentColor" />
