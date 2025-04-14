@@ -1,6 +1,6 @@
 # 📊 Project Dashboard
 
-**Live Site:** [Click here to view the live website](#)  
+**Live Site:** [Click here to view the live website](https://chargind-dashboard.vercel.app/)  
 *(Please replace `#` with your actual deployment URL)*
 
 ## 🚀 Setup Instructions
