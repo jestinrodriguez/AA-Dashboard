@@ -1,6 +1,7 @@
+
 # 📊 Project Dashboard
 
-**Live Site:** [Click here to view the live website](https://chargind-dashboard.vercel.app/)  
+**Live Site:** [Click here to view the live website](https://chargind-dashboard.vercel.app/)
 
 ## 🚀 Setup Instructions
 
@@ -58,6 +59,16 @@
 Consider separating Google login behavior in the following cases:
 
 - **Custom User Flows:** For handling new users uniquely (e.g., onboarding, collecting extra profile data, tracking, etc.).
+
+---
+
+## ⚙️ Technical Decisions & Trade-offs
+
+- **ShadCN UI:** Chose this component library for its pre-built components and fast development. However, some components were hard to fully customize, requiring more effort to adjust them.
+- **Firebase Authentication:** Used Firebase for easy and secure user authentication. The trade-off was the need for extra work on error handling and validation, which I handled with **Zod**.
+- **Zod for Form Validation:** Opted for Zod due to its simplicity and compatibility with TypeScript. It gave better control and type safety.
+- **TailwindCSS:** Used TailwindCSS for quick styling and flexibility. It helped keep the styling consistent and easy to manage.
+- **React Router:** Chose React Router for navigation due to its simplicity.
 
 ---
 
