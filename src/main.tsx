@@ -8,13 +8,15 @@ import Signup from './pages/SignupPage.tsx'
 import { Toaster } from 'sonner'
 import AuthProvider from './context/AuthProvider.tsx'
 import AuthRoute from './components/Authroute.tsx'
+import AuthRoutes from './components/AuthRoutes.tsx'
+
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
     <AuthProvider>
       <Router>
         <Routes>
-          <Route path="/" element={<AuthRoute><App /></AuthRoute>} />
+          <Route path="/" element={<AuthRoutes><App /></AuthRoutes>} />
           <Route path="/login" element={<AuthRoute redirectIfAuthenticated><Login /></AuthRoute>} />
           <Route path="/signup" element={<AuthRoute redirectIfAuthenticated><Signup /></AuthRoute>} />
           <Route path="*" element={<Navigate to="/" />} />

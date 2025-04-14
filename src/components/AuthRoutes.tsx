@@ -3,15 +3,15 @@ import { useNavigate } from 'react-router-dom';
 import useAuthStore from '../store/useAuthStore';
 import { useAuthLoading } from '../context/AuthProvider';
 
-interface AuthRouteProps {
+interface AuthRoutesProps {
   children: React.ReactNode;
   redirectIfAuthenticated?: boolean;
 }
 
-const AuthRoute = ({
+const AuthRoutes = ({
   children,
   redirectIfAuthenticated = false,
-}: AuthRouteProps) => {
+}: AuthRoutesProps) => {
     const { loading } = useAuthLoading();
     const user = useAuthStore((state) => state.user);
     const navigate = useNavigate();
@@ -37,4 +37,5 @@ const AuthRoute = ({
   
 };
 
-export default AuthRoute;
+export default AuthRoutes;
+
