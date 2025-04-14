@@ -68,7 +68,7 @@ Consider separating Google login behavior in the following cases:
 - 2–4 hours: UI implementation
 - 1–2 hours: Firebase Auth error handling & Zod validation
 - 30 mins: Router navigation setup
-- 2–3 hours: Debugging, additional testing, and UI polishing
+- 2–4 hours: Debugging, additional testing, and UI polishing
 
 > ⏳ **Note:** While the original estimate was approximately 5 hours, I took extra time to ensure high quality and functionality. I focused on polishing the UI, fixing bugs, and validating the experience to make sure it worked smoothly. I believe this extra effort was valuable in delivering a complete and reliable result.
 
